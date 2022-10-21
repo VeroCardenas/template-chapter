@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Falta de definición en el estándar
+- Definición de nombrado de models
+
+
+## Recomendaciones snippets
+
+- Generación de html, clases para BEM automatizar

@@ -3,7 +3,15 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "paths": {
+      "@models/*": ["src/app/shared/models/*"],
+      "@models": ["src/app/shared/models/index"],
+      "@core/*": ["src/app/core/*"],
+      "@core": ["src/app/core/index"],
+      "@shared/*": ["src/app/shared/*"],
+      "@shared": ["src/app/shared/index"],
+    },
   },
   "files": [
     "src/main.ts",

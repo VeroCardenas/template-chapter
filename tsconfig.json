@@ -3,6 +3,14 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "@models/*": ["src/app/shared/models/*"],
+      "@models": ["src/app/shared/models/index"],
+      "@core/*": ["src/app/core/*"],
+      "@core": ["src/app/core/index"],
+      "@shared/*": ["src/app/shared/*"],
+      "@shared": ["src/app/shared/index"],
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -21,6 +29,9 @@
     "lib": [
       "es2020",
       "dom"
+    ],
+    "types": [
+      "jest",
     ]
   },
   "angularCompilerOptions": {
