@@ -1,0 +1,14 @@
+
+<div>
+    <input
+        id="filter"
+        [(ngModel)]="filterWord"
+        placeholder="Buscar por nombre"
+      />
+</div>
+
+<div class="container">
+    <div *ngFor="let player of players | filterList:filterWord">
+        <app-player-card [player]="player"></app-player-card>
+    </div>
+</div>

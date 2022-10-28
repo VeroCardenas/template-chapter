@@ -10,6 +10,8 @@
       "@core": ["src/app/core/index"],
       "@shared/*": ["src/app/shared/*"],
       "@shared": ["src/app/shared/index"],
+      "@assets/*": ["src/assets/*"],
+      "@assets": ["src/assets/index"],
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

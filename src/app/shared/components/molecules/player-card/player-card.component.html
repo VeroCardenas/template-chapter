@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-image">
+      <img appImgBroken class="card-player" [src]="player.image" alt="MDN">
+    <div class="container-name">
+      <div class="card-player__name"> {{player.firstName}} {{player.lastName}} </div>
+    </div>
+    </div>
+    <div class="card-player__stats">
+        <div>
+            <div>
+                Ataque
+            </div>
+            <div>
+                {{player.attack}}
+            </div>
+        </div>
+        <div>
+            <div>
+                Defensa
+            </div>
+            <div>
+                {{player.defense}}
+            </div>
+        </div>
+        <div>
+            <div>
+                Skills
+            </div>
+            <div>
+                {{player.skills}}
+            </div>
+        </div>
+    </div>
+    <div class="card-player__actions">
+        <div>
+          <img (click)="onClickEdit()" height="30" width="30" src="../assets/edit-icon.svg" />
+        </div>
+        <div>
+          <img (click)="onClickDelete()" height="30" width="30" src="../assets/delete-icon.svg" />
+        </div>
+    </div>
+</div>
