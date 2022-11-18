@@ -9,6 +9,7 @@ import { Player } from '@models/player.model';
 })
 export class PlayerComponent implements OnInit {
 
+
   filterWord = "";
   players: Array<Player> = [
   ]
@@ -23,6 +24,7 @@ export class PlayerComponent implements OnInit {
 
   getListTodo() {
     this.playerService.getPlayers().subscribe(resp => {
+      console.log(resp);
       this.players = resp;
     });
   }

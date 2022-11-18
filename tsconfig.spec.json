@@ -6,7 +6,17 @@
     "types": [
       "jest",
       "node"
-    ]
+    ],
+    "paths": {
+      "@models/*": ["src/app/shared/models/*"],
+      "@models": ["src/app/shared/models/index"],
+      "@core/*": ["src/app/core/*"],
+      "@core": ["src/app/core/index"],
+      "@shared/*": ["src/app/shared/*"],
+      "@shared": ["src/app/shared/index"],
+      "@assets/*": ["src/assets/*"],
+      "@assets": ["src/assets/index"],
+    },
   },
   "files": [
     "src/setup.jest.ts",

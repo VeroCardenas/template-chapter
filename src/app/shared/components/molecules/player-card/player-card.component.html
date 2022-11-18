@@ -1,8 +1,8 @@
 <div class="card">
     <div class="card-image">
-      <img appImgBroken class="card-player" [src]="player.image" alt="MDN">
+      <img appImgBroken class="card-player" [src]="player?.image " alt="MDN">
     <div class="container-name">
-      <div class="card-player__name"> {{player.firstName}} {{player.lastName}} </div>
+      <div class="card-player__name"> {{player?.firstName}} {{player?.lastName}} </div>
     </div>
     </div>
     <div class="card-player__stats">
@@ -11,7 +11,7 @@
                 Ataque
             </div>
             <div>
-                {{player.attack}}
+                {{player?.attack}}
             </div>
         </div>
         <div>
@@ -19,7 +19,7 @@
                 Defensa
             </div>
             <div>
-                {{player.defense}}
+                {{player?.defense}}
             </div>
         </div>
         <div>
@@ -27,7 +27,7 @@
                 Skills
             </div>
             <div>
-                {{player.skills}}
+                {{player?.skills}}
             </div>
         </div>
     </div>
