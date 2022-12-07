@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiPlayer: 'https://api-exercise-q3.herokuapp.com/player'
 };

@@ -8,7 +8,7 @@ import { Player } from '@models/player.model';
 export class FilterListPipe implements PipeTransform {
 
   transform(value: Array<Player>, args: string): any {
-    return value.filter(word => word.firstName.includes(args));
+    return value.filter(word => word.firstName.toLowerCase().includes(args.toLowerCase()));
   }
 
 }

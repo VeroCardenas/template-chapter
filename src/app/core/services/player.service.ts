@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Player } from '@models/player.model';
+import { environment } from 'src/environments/environment';
+import { UpdatedResponse } from '@models/updated-response.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlayerService {
-  private url = 'https://api-exercise-q3.herokuapp.com/player';
+  private url =  `${environment.apiPlayer}/player`;
   private idAuthor = 18;
   constructor(
     private _http: HttpClient
@@ -28,9 +30,9 @@ export class PlayerService {
     return this._http.post(this.url, player).pipe(map(res => res as Player))
   }
 
-  editPlayer(player: Player): Observable<Player> {
+  editPlayer(player: Player): Observable<UpdatedResponse> {
     const url = `${this.url}/${player.id}`
-    return this._http.put(url, player).pipe(map(res => res as Player))
+    return this._http.patch(url, player).pipe(map(res => res as UpdatedResponse))
   }
 
   deletePlayer(player: Player): Observable<Player> {

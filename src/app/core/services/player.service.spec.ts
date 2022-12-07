@@ -2,81 +2,17 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { PlayerService } from './player.service';
 import { Player } from '@models/player.model';
+import { environment } from 'src/environments/environment';
+import { PLAYERSMOCK } from '@core/mocks/player.mock';
+import { UPDATEDRESPONSEMOCK } from '@core/mocks/updated-response.mock';
+import { DELETEDRESPONSEMOCK } from '@core/mocks/deleted-response.mock';
 
 
 describe('PlayerService', () => {
   let service: PlayerService;
   let httpTestingController: HttpTestingController;
-  const url = 'https://api-exercise-q3.herokuapp.com/player';
-  const mockPlayer: Array<Player> =
-  [
-    {
-        "id": 48,
-        "firstName": "Cristiano",
-        "lastName": "Ronaldo",
-        "image": "https://www.realmadrid.com/img/vertical_380px/cristiano_550x650_20180917025046.jpg",
-        "attack": 50,
-        "defense": 60,
-        "skills": 22,
-        "idAuthor": 6,
-        "idPosition": 10
-    },
-    {
-        "id": 351,
-        "firstName": "fasdf",
-        "lastName": "fasdf",
-        "image": "asdfasdf",
-        "attack": 50,
-        "defense": 50,
-        "skills": 50,
-        "idAuthor": 6,
-        "idPosition": 1
-    },
-    {
-        "id": 353,
-        "firstName": "Figo",
-        "lastName": "Nazario",
-        "image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYVFRgSFhUYGBgaGBoaHBgaGhgcGBgYGBgZGRgaGBgcIS4lHB4rIRgYJjgmKy8xNTU1GiQ7QDszPy40NTEBDAwMEA8QHxISHjQrJCQ0NDQ0NDE0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NP/AABEIARAAuQMBIgACEQEDEQH/",
-        "attack": 50,
-        "defense": 50,
-        "skills": 50,
-        "idAuthor": 6,
-        "idPosition": 1
-    },
-    {
-        "id": 354,
-        "firstName": "ffigo2",
-        "lastName": "figo",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/8/81/Luis_Figo-2009_cropped.jpg",
-        "attack": 50,
-        "defense": 50,
-        "skills": 50,
-        "idAuthor": 6,
-        "idPosition": 1
-    },
-    {
-        "id": 425,
-        "firstName": "",
-        "lastName": "",
-        "image": "",
-        "attack": 50,
-        "defense": 50,
-        "skills": 50,
-        "idAuthor": 6,
-        "idPosition": 1
-    },
-    {
-        "id": 432,
-        "firstName": "",
-        "lastName": "",
-        "image": "",
-        "attack": 10,
-        "defense": 10,
-        "skills": 10,
-        "idAuthor": 6,
-        "idPosition": 0
-    }
-]
+  const url = `${environment.apiPlayer}/player`;
+  const mockPlayer: Array<Player> = PLAYERSMOCK;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -109,6 +45,51 @@ describe('PlayerService', () => {
     expect(req.request.method).toEqual('GET');
 
     req.flush(mockPlayer);
+
+
+  })
+
+  it('save soccer player', () => {
+    service.savePlayer(PLAYERSMOCK[0]).subscribe( (player) => {
+      expect(player).toEqual(mockPlayer)
+    })
+
+    const urlApi = `${url}`;
+    const req = httpTestingController.expectOne(urlApi);
+
+    expect(req.request.method).toEqual('POST');
+
+    req.flush(mockPlayer);
+
+
+  })
+
+  it('edit soccer player', () => {
+    service.editPlayer(PLAYERSMOCK[0]).subscribe( (UpdatedResponse) => {
+      expect(UpdatedResponse).toEqual(UPDATEDRESPONSEMOCK)
+    })
+
+    const urlApi = `${url}/${PLAYERSMOCK[0].id}`;
+    const req = httpTestingController.expectOne(urlApi);
+
+    expect(req.request.method).toEqual('PATCH');
+
+    req.flush(UPDATEDRESPONSEMOCK);
+
+
+  })
+
+  it('delete soccer player', () => {
+    service.deletePlayer(PLAYERSMOCK[0]).subscribe( (deletedResponse) => {
+      expect(deletedResponse).toEqual(DELETEDRESPONSEMOCK)
+    })
+
+    const urlApi = `${url}/${PLAYERSMOCK[0].id}`;
+    const req = httpTestingController.expectOne(urlApi);
+
+    expect(req.request.method).toEqual('DELETE');
+
+    req.flush(DELETEDRESPONSEMOCK);
 
 
   })
