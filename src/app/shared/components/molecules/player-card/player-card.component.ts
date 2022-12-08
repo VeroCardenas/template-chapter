@@ -1,5 +1,5 @@
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PlayerService } from '@core/services/player.service';
 import { Player } from '@models/player.model';
 
@@ -12,20 +12,21 @@ import { Player } from '@models/player.model';
 export class PlayerCardComponent implements OnInit {
 
   @Input() player!: Player;
+  @Output() playerDeleted: EventEmitter<number> = new EventEmitter();
 
   constructor(private readonly playerService: PlayerService) { }
 
   ngOnInit(): void {
   }
 
-  onClickDelete(){
+  onClickDelete() {
     this.playerService.deletePlayer(this.player).subscribe(res => {
-      console.log("usuairo eliminado")
+      this.playerDeleted.emit(res.affected);
     })
   }
 
 
-  onClickEdit(){
+  onClickEdit() {
 
   }
 }

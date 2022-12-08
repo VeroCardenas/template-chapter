@@ -10,21 +10,19 @@ import { Player } from '@models/player.model';
 export class PlayerComponent implements OnInit {
 
 
-  filterWord = "";
+  firstName = "";
   players: Array<Player> = [
   ]
 
   constructor(private readonly playerService: PlayerService) { }
 
   ngOnInit(): void {
-
     this.getListTodo();
   }
 
 
   getListTodo() {
     this.playerService.getPlayers().subscribe(resp => {
-      console.log(resp);
       this.players = resp;
     });
   }

@@ -4,6 +4,7 @@ import { map, Observable } from 'rxjs';
 import { Player } from '@models/player.model';
 import { environment } from 'src/environments/environment';
 import { UpdatedResponse } from '@models/updated-response.model';
+import { DeletedResponse } from '@models/deleted-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -35,8 +36,8 @@ export class PlayerService {
     return this._http.patch(url, player).pipe(map(res => res as UpdatedResponse))
   }
 
-  deletePlayer(player: Player): Observable<Player> {
+  deletePlayer(player: Player): Observable<DeletedResponse> {
     const url = `${this.url}/${player.id}`
-    return this._http.delete(url).pipe(map(res => res as Player))
+    return this._http.delete(url).pipe(map(res => res as DeletedResponse))
   }
 }

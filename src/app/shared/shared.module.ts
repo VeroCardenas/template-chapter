@@ -2,11 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InputComponent } from './components/atoms/input/input/input.component';
 import { SliderComponent } from './components/atoms/slider/slider.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PlayerCardComponent } from './components/molecules/player-card/player-card.component';
 import { HeaderComponent } from './components/molecules/header/header.component';
-import { FilterListPipe } from './pipes/filter-list.pipe';
+import { FilterPlayersPipe } from './pipes/filter-players.pipe';
 import { ImgBrokenDirective } from './directives/img-broken.directive';
 
 
@@ -16,7 +15,7 @@ import { ImgBrokenDirective } from './directives/img-broken.directive';
     SliderComponent,
     PlayerCardComponent,
     HeaderComponent,
-    FilterListPipe,
+    FilterPlayersPipe,
     ImgBrokenDirective,
   ],
   exports:[
@@ -24,7 +23,7 @@ import { ImgBrokenDirective } from './directives/img-broken.directive';
     SliderComponent,
     PlayerCardComponent,
     HeaderComponent,
-    FilterListPipe,
+    FilterPlayersPipe,
     ImgBrokenDirective,
   ],
   imports: [
