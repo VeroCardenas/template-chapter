@@ -2,15 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PlayerRoutingModule } from './player-routing.module';
-import { PlayerComponent } from './components/player/player.component';
 import { SharedModule } from '@shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { PlayerListComponent } from './components/player-list/player-list.component';
 
 
 @NgModule({
   declarations: [
-    PlayerComponent
+    PlayerListComponent,
   ],
   imports: [
     CommonModule,

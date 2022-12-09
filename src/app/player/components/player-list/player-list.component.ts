@@ -3,11 +3,11 @@ import { PlayerService } from '@core/services/player.service';
 import { Player } from '@models/player.model';
 
 @Component({
-  selector: 'app-player',
-  templateUrl: './player.component.html',
-  styleUrls: ['./player.component.scss']
+  selector: 'app-player-list',
+  templateUrl: './player-list.component.html',
+  styleUrls: ['./player-list.component.scss']
 })
-export class PlayerComponent implements OnInit {
+export class PlayerListComponent implements OnInit {
 
 
   firstName = "";

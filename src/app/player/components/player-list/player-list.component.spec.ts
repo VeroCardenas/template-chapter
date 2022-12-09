@@ -1,23 +1,21 @@
-import { CommonModule } from '@angular/common';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DELETEDRESPONSEMOCK } from '@core/mocks/deleted-response.mock';
 import { PLAYERSMOCK } from '@core/mocks/player.mock';
 import { PlayerService } from '@core/services/player.service';
 import { FilterPlayersPipe } from '@shared/pipes/filter-players.pipe';
 import { of } from 'rxjs';
 
-import { PlayerComponent } from './player.component';
+import { PlayerListComponent } from './player-list.component';
 
-describe('PlayerComponent', () => {
-  let component: PlayerComponent;
-  let fixture: ComponentFixture<PlayerComponent>;
+describe('PlayerListComponent', () => {
+  let component: PlayerListComponent;
+  let fixture: ComponentFixture<PlayerListComponent>;
   let playerService: PlayerService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PlayerComponent, FilterPlayersPipe],
+      declarations: [PlayerListComponent, FilterPlayersPipe],
       imports: [HttpClientTestingModule, ReactiveFormsModule, FormsModule],
       providers: [PlayerService]
     })
@@ -30,7 +28,7 @@ describe('PlayerComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PlayerComponent);
+    fixture = TestBed.createComponent(PlayerListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
