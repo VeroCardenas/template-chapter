@@ -40,3 +40,7 @@
         </div>
     </div>
 </div>
+
+<app-modal title="Agregar jugador" (close)="closeModal()" [show]="showModal">
+  <app-player *ngIf="showModal" [player]="playerSelected"></app-player>
+</app-modal>

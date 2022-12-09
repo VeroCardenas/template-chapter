@@ -14,6 +14,9 @@ export class PlayerCardComponent implements OnInit {
   @Input() player!: Player;
   @Output() playerDeleted: EventEmitter<number> = new EventEmitter();
 
+  showModal = false;
+  playerSelected: Player = new Player();
+
   constructor(private readonly playerService: PlayerService) { }
 
   ngOnInit(): void {
@@ -25,8 +28,16 @@ export class PlayerCardComponent implements OnInit {
     })
   }
 
+  openModal() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
 
   onClickEdit() {
-
+    this.openModal();
   }
+
 }
