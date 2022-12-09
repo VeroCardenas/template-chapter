@@ -33,7 +33,7 @@
     </div>
     <div class="card-player__actions">
         <div>
-          <img (click)="onClickEdit()" height="30" width="30" src="../assets/edit-icon.svg" />
+          <img (click)="onClickEdit()" data-testid="edit-img" height="30" width="30" src="../assets/edit-icon.svg" />
         </div>
         <div>
           <img (click)="onClickDelete()" data-testid="delete-img" height="30" width="30" src="../assets/delete-icon.svg" />
@@ -41,6 +41,6 @@
     </div>
 </div>
 
-<app-modal title="Agregar jugador" (close)="closeModal()" [show]="showModal">
-  <app-player *ngIf="showModal" [player]="playerSelected"></app-player>
+<app-modal title="Editar jugador" (close)="closeModal()" [show]="showModal" >
+  <app-player *ngIf="showModal" [player]="player" data-testid="player-cmp"></app-player>
 </app-modal>

@@ -15,7 +15,6 @@ export class PlayerCardComponent implements OnInit {
   @Output() playerDeleted: EventEmitter<number> = new EventEmitter();
 
   showModal = false;
-  playerSelected: Player = new Player();
 
   constructor(private readonly playerService: PlayerService) { }
 

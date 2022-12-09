@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Position } from '@models/position.model';
 
 @Component({
@@ -17,6 +17,9 @@ export class SelectComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if (!this.form.contains(this.control)) {
+      this.form.addControl(this.control, new FormControl(null, ));
+    }
   }
 
 }

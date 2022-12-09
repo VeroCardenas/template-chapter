@@ -4,8 +4,8 @@
             <div class="modal__header-title">
                 {{title}}
             </div>
-            <div class="modal__header-close" (click)="closeDialog()">
-                <img height="20" width="20" src="../assets/close-icon.svg" />
+            <div class="modal__header-close">
+                <img (click)="closeDialog()" data-testid="close-img" height="20" width="20" src="../assets/close-icon.svg" />
             </div>
         </div>
         <div class="modal__content">

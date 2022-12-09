@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PLAYERSMOCK } from '@core/mocks/player.mock';
 import { PlayerService } from '@core/services/player.service';
-import { FilterPlayersPipe } from '@shared/pipes/filter-players.pipe';
+import { SharedModule } from '@shared/shared.module';
 import { of } from 'rxjs';
 
 import { PlayerListComponent } from './player-list.component';
@@ -15,8 +15,8 @@ describe('PlayerListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PlayerListComponent, FilterPlayersPipe],
-      imports: [HttpClientTestingModule, ReactiveFormsModule, FormsModule],
+      declarations: [PlayerListComponent],
+      imports: [HttpClientTestingModule, ReactiveFormsModule, FormsModule, SharedModule],
       providers: [PlayerService]
     })
       .compileComponents();
